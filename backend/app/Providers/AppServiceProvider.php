@@ -4,12 +4,19 @@ namespace App\Providers;
 
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\ServiceProvider;
-
+use App\Policies\AgendaPolicy;
+use App\Models\Agenda;
 class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
      */
+
+    protected $policies = [
+        Agenda::class => AgendaPolicy::class,
+    ];
+
+
     public function register(): void
     {
         //
